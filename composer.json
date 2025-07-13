@@ -1,18 +1,18 @@
 {
-    "name": "sepayvn/laravel-sepay",
-    "description": "Laravel Package cho SePay - Giải pháp tự động hóa cho thanh toán chuyển khoản ngân hàng",
+    "name": "dandyphuong99/laravel-sepay",
+    "description": "Forked version of SePayVN with custom behavior - Giải pháp tự động hóa cho thanh toán chuyển khoản ngân hàng",
     "keywords": [
         "SePay",
         "laravel",
         "laravel-sepay"
     ],
-    "homepage": "https://github.com/sepayvn/laravel-sepay",
+    "homepage": "https://github.com/dandyphuong99/laravel-sepay",
     "license": "MIT",
     "authors": [
         {
-            "name": "SePay",
-            "email": "info@sepay.vn",
-            "role": "Developer"
+            "name": "Dandy Phương",
+            "email": "your@email.com",
+            "role": "Maintainer"
         }
     ],
     "require": {
@@ -34,13 +34,13 @@
     },
     "autoload": {
         "psr-4": {
-            "SePay\\SePay\\": "src/",
-            "SePay\\SePay\\Database\\Factories\\": "database/factories/"
+            "DandyPhuong\\SePay\\": "src/",
+            "DandyPhuong\\SePay\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "SePay\\SePay\\Tests\\": "tests/",
+            "DandyPhuong\\SePay\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -72,10 +72,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "SePay\\SePay\\SePayServiceProvider"
+                "DandyPhuong\\SePay\\SePayServiceProvider"
             ],
             "aliases": {
-                "SePay": "SePay\\SePay\\Facades\\SePay"
+                "SePay": "DandyPhuong\\SePay\\Facades\\SePay"
             }
         }
     },
