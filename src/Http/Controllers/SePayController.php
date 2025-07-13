@@ -8,6 +8,7 @@ use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use SePay\SePay\Datas\SePayWebhookData;
@@ -65,12 +66,17 @@ class SePayController extends Controller
         $model->save();
 
         // Lấy ra user id hoặc order id ví dụ: SE_123456, SE_abcd-efgh
-        $pattern = '/\b'.config('sepay.pattern').'([a-zA-Z0-9-_])+/';
+        $pattern = '/\b' . config('sepay.pattern') . '([a-zA-Z0-9_]+)\b/';
         preg_match($pattern, $sePayWebhookData->content, $matches);
+
+        Log::info('[SEPay DEBUG] Pattern: ' . config('sepay.pattern'));
+        Log::info('[SEPay DEBUG] Content: ' . $sePayWebhookData->content);
+        Log::info('[SEPay DEBUG] Matches:', $matches);
 
         if (isset($matches[0])) {
             // Lấy bỏ phần pattern chỉ còn lại id ex: 123456, abcd-efgh
             $info = Str::of($matches[0])->replaceFirst(config('sepay.pattern'), '')->value();
+            Log::info('[SEPay DEBUG] info:'. $info);
             event(new SePayWebhookEvent($info, $sePayWebhookData));
         }
 
