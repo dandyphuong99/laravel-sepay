@@ -34,13 +34,13 @@
     },
     "autoload": {
         "psr-4": {
-            "DandyPhuong\\SePay\\": "src/",
-            "DandyPhuong\\SePay\\Database\\Factories\\": "database/factories/"
+            "SePay\\SePay\\": "src/",
+            "SePay\\SePay\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "DandyPhuong\\SePay\\Tests\\": "tests/",
+            "SePay\\SePay\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -72,10 +72,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "DandyPhuong\\SePay\\SePayServiceProvider"
+                "SePay\\SePay\\SePayServiceProvider"
             ],
             "aliases": {
-                "SePay": "DandyPhuong\\SePay\\Facades\\SePay"
+                "SePay": "SePay\\SePay\\Facades\\SePay"
             }
         }
     },
