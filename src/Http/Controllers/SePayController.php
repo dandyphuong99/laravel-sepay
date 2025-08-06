@@ -69,9 +69,9 @@ class SePayController extends Controller
         $pattern = '/\b' . config('sepay.pattern') . '([a-zA-Z0-9_]+)\b/';
         preg_match($pattern, $sePayWebhookData->content, $matches);
 
-        Log::info('[SEPay DEBUG] Pattern: ' . config('sepay.pattern'));
-        Log::info('[SEPay DEBUG] Content: ' . $sePayWebhookData->content);
-        Log::info('[SEPay DEBUG] Matches:', $matches);
+        // Log::info('[SEPay DEBUG] Pattern: ' . config('sepay.pattern'));
+        // Log::info('[SEPay DEBUG] Content: ' . $sePayWebhookData->content);
+        // Log::info('[SEPay DEBUG] Matches:', $matches);
 
         if (isset($matches[0])) {
             // Lấy bỏ phần pattern chỉ còn lại id ex: 123456, abcd-efgh
